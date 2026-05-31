@@ -3,7 +3,7 @@ import spacy
 nlp = spacy.blank("es")
 
 def contains_search_word(doc, targets):
-    return any(token.lower_ in targets for token in doc)
+    return sum(token.lower_ in targets for token in doc)
 
 def get_surrounding_spans(doc, targets, n_window):
     """
