@@ -1,4 +1,4 @@
-BASE_PATH = 'data/loc/'
+BASE_PATH = 'data/'
 
 LCCN_TO_NAME = {
     'sn91099739': 'Boletín mercantil de Puerto Rico',

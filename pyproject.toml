@@ -1,0 +1,38 @@
+[project]
+name = "newspaper-ocr"
+version = "0.1.0"
+description = "OCR and analysis workflows for newspaper data"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  "opencv-python",
+  "pillow",
+  "numpy",
+  "scikit-learn",
+  "jupyterlab",
+  "scikit-image",
+  "tqdm>=4.67.3",
+  "alto-xml",
+  "lxml>=6.1.1",
+  "spacy>=3.8.14",
+  "pandas>=2.3.3",
+  "click>=8.4.1",
+  "rapidfuzz>=3.14.5",
+  "wordfreq>=3.1.1",
+  "symspellpy>=6.9.0",
+  "matplotlib>=3.10.9",
+  "seaborn>=0.13.2",
+  "wordcloud>=1.9.6",
+  "ipywidgets>=8.1.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+]

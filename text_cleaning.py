@@ -526,68 +526,6 @@ def build_phrase_patch_index(phrase_patches) -> PhrasePatchIndex:
     return PhrasePatchIndex(patch_map=dict(patch_map), by_first=dict(by_first))
 
 
-    
-# def apply_phrase_patches(text: str, nlp, phrase_patches) -> str:
-#     """
-#     Safer phrase patch application:
-#       - case-insensitive
-#       - punctuation-tolerant
-#       - longest-match wins
-#       - preserves original whitespace/newlines
-#     """
-
-#     # Build normalized patch index
-#     patch_map = {}
-#     by_first = defaultdict(list)
-
-#     for p in phrase_patches:
-#         raw_norm = tuple(_norm_tok(t) for t in p.raw_span)
-#         patch_map[raw_norm] = p.fixed_span
-#         if raw_norm:
-#             by_first[raw_norm[0]].append(raw_norm)
-
-#     # Prefer longer spans first
-#     for k in by_first:
-#         by_first[k].sort(key=len, reverse=True)
-
-#     doc = nlp(text)
-#     toks = [t.text for t in doc]
-#     wss  = [t.whitespace_ for t in doc]
-#     toks_norm = [_norm_tok(t) for t in toks]
-
-#     out = []
-#     i = 0
-#     n = len(toks)
-
-#     while i < n:
-#         norm_tok = toks_norm[i]
-#         matched = False
-
-#         for raw_norm in by_first.get(norm_tok, []):
-#             L = len(raw_norm)
-#             if i + L > n:
-#                 continue
-#             if tuple(toks_norm[i:i+L]) == raw_norm:
-#                 fixed_span = patch_map[raw_norm]
-#                 tail_ws = wss[i + L - 1]
-
-#                 if fixed_span:
-#                     for j, ft in enumerate(fixed_span):
-#                         out.append(ft)
-#                         out.append(tail_ws if j == len(fixed_span) - 1 else " ")
-#                 else:
-#                     out.append(tail_ws)
-
-#                 i += L
-#                 matched = True
-#                 break
-
-#         if not matched:
-#             out.append(toks[i])
-#             out.append(wss[i])
-#             i += 1
-
-#     return "".join(out)
 def apply_phrase_patches_doc(
     doc: Doc,
     *,
