@@ -1,4 +1,4 @@
-# Analysis of Jíbaro and Campesino Mentions in SPanish Newspapers
+# Analysis of Jíbaro and Campesino Mentions in Spanish Newspapers
 
 This repository contains Jupyter notebooks and Python utilities for analyzing historical Spanish-language newspapers from Puerto Rico, using OCR text from the Library of Congress's Chronicling America collection. The analysis focuses on mentions of *jíbaro*, *gíbaro*, and *campesino*, including spelling and grammatical variants.
 
@@ -16,4 +16,4 @@ The numbered notebooks in the repository root guide the workflow from downloadin
 
 5. **Generate timelines.** Count mentions in the retained text blocks, aggregate them by year and newspaper, and plot the resulting timelines. Compare *jíbaro* and *gíbaro* mentions, individually or combined, with *campesino* mentions.
 
-6. **Generate word clouds.** Gather sentences or short passages surrounding the target terms in the retained texts. Use Spanish language processing and dictionary filtering to identify nouns, adjectives, and recurring two- and three-word phrases. Remove stop words, the target terms themselves, and manually selected unwanted terms, then size the remaining words and phrases by frequency.
+6. **Generate word clouds.** Gather sentences or short passages surrounding the target terms in the retained texts. Use Spanish language processing and dictionary filtering to identify nouns, adjectives, and recurring two- and three-word phrases. Remove stop words, the target terms themselves, and uninformative terms (such as reptitions, plurals, and persistent OCR errors), then size the remaining words and phrases by frequency.
